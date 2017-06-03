@@ -411,3 +411,25 @@ hr{
     right: 14px;
     z-index: 9;
 }
+
+
+//products-list
+#products-list h4{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin: auto;
+  width: 120px;
+  text-align: center;
+  overflow: hidden;
+}
+
+//rating
+.rating {
+  width: 125px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+  text-align: center;
+
+}

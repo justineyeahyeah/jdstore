@@ -1,16 +1,24 @@
-<div class="row">
+<div class="row" style="padding-top: 30px;">
   <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3 text-center product-list-style">
+  <div class="book-item">
+    <div class="col-xs-12 col-sm-6 col-md-2" style="width:160px;" id="products-list">
+      <div class="product-image">
       <% link_to product_path(product) %>
-        <% if product.image.present? %>
-          <%= link_to image_tag(product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
-        <% else %>
-          <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(product) %>
-        <% end %>
+      <% if product.image.present? %>
+      <%= link_to image_tag(product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
+    <% else %>
+      <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(product) %>
+      <% end %>
+      </div>
       <br>
-      <%= link_to(product.title, product_path(product)) %>
+        <h4 class="product-title">
+        <%= link_to(product.title, product_path(product), style: "text-align: center") %>
+        </h4>
       <br>
-      <strong>￥ <%= product.price %></strong></p>
+      <div class="rating" style="margin-bottom: 20px;">
+        rating
+      </div>
     </div>
+  </div>
   <% end %>
 </div>

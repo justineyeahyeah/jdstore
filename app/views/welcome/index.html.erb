@@ -15,7 +15,7 @@
 
       <div class="carousel-caption">
         <h2>Gifts to Celebrate Every Dad</h2>
-        <p> </p>
+        <p></p>
       </div>
 
     </div>
@@ -46,202 +46,193 @@
 </div>
 
 <div class="hp-header clearer style: text-center">
-  <br>
+  <hr>
   <p>The Best Bookstore Online
   </br>Over 6 million books ready for shipment within 24 hours and 4.5 million eBooks to download now.
   <p>
-  <hr></hr>
+    <hr>
+    <h2 style="padding-bottom: 20px;">Recommended For You</h2>
+  </div>
 
-  <h2>Recommended For You</h2>
-</div>
+  <!-- 首页精选商品列表 -->
+  <div class="container-fluid">
 
-
-
-
-
-<!-- 首页精选商品列表 -->
-  <div class="container all-product-box">
     <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
 
-      <% @products.each do |product| %>
-        <div class="col-xs-6 col-md-3 text-center product-list-style">
-          <% link_to product_path(product) %>
-            <% if product.image.present? %>
+        <% @products.each do |product| %>
+        <div class="book-item">
+          <div class="col-xs-12 col-sm-6 col-md-2" style="width:160px;" id="products-list">
+            <div class="product-image">
+              <% link_to product_path(product) %>
+              <% if product.image.present? %>
               <%= link_to image_tag(product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
             <% else %>
               <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(product) %>
-            <% end %>
-          <br>
-          <div class="product-title">
-          <%= link_to(product.title, product_path(product)) %>
+              <% end %>
+            </div>
+            <br>
+            <h4 class="product-title">
+              <%= link_to(product.title, product_path(product), style: "text-align: center") %>
+            </h4>
+            <br>
+            <div class="rating" style="margin-bottom: 20px;">
+              rating
+            </div>
           </div>
-          <br>
-          <strong>￥ <%= product.price %></strong></p>
         </div>
-      <% end %>
-
-      <div class="col-xs-6">
-        <%= link_to("more >", products_path, class: "pull-right morespan") %>
+        <% end %>
       </div>
 
     </div>
   </div>
-
-  <!-- <div class="style: text-center">
-    <br>
-    <h2>Shop By Category</h2>
-
-  </div> -->
+  <!-- 首页精选商品列表 -->
 
 
-    <div class="hp-layout-width clearer">
-     <div class="hp-categories">
-      <h2>Shop By Category</h2>
-      <div class="hp-category-group-2col">
-       <div class="hp-category hp-cat-w624">
-        <a href="/b/books/_/N-8q8" onclick="set_cookie('hpcategories_books_na_imagetext');">
-         <div class="hp-category-name left">
-          Books
-         </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Books_CategoryPod_.jpg" alt="" /> </a>
-       </div>
-       <div class="hp-category">
-        <a href="/b/hobbies-collectibles/_/N-1gls" onclick="set_cookie('hpcategories_ hobbies-collectibles_na_imagetext');">
-         <div class="hp-category-name">
-           Hobbies &amp; Collectibles
-         </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/03/01/HobbiesCollectibles_CategoryPod.jpg" alt="" /> </a>
-       </div>
-       <!--
-  <div class="hp-category">
-  <a href="/b/textbooks/_/N-8q9" onclick="set_cookie('hpcategories_textbooks_na_imagetext');">
-  <div class="hp-category-name">Textbooks</div>
-  <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Textbooks_CategoryPod_.jpg" alt="" / >
-  </a>
-  </div> -->
-       <div class="hp-category">
-        <a href="/b/books/kids/_/N-29Z8q8Ztu1" onclick="set_cookie('hpcategories_kids_na_imagetext');">
-         <div class="hp-category-name">
-          Kids
-         </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Kids_CategoryPod_.jpg" alt="" /> </a>
-       </div>
-      </div>
-      <div class="hp-category hp-cat-t624 hp-ordinal">
-       <div class="clearer" id="hpTopContainer">
-        <div class="hp-ordinal-hdr">
-         B&amp;N Top 100
+
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+
+      <div class="hp-layout-width clearer">
+        <div class="hp-categories">
+          <h2>Shop By Category</h2>
+          <div class="hp-category-group-2col">
+            <div class="hp-category hp-cat-w624">
+              <a href="/products" onclick="set_cookie('hpcategories_books_na_imagetext');">
+                <div class="hp-category-name left">
+                  Books
+                </div>
+                <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Books_CategoryPod_.jpg" alt=""/>
+              </a>
+            </div>
+            <div class="hp-category">
+              <a href="#" onclick="set_cookie('hpcategories_ hobbies-collectibles_na_imagetext');">
+                <div class="hp-category-name">
+                  Hobbies &amp; Collectibles
+                </div>
+                <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/03/01/HobbiesCollectibles_CategoryPod.jpg" alt=""/>
+              </a>
+            </div>
+
+            <div class="hp-category">
+              <a href="#" onclick="set_cookie('hpcategories_kids_na_imagetext');">
+                <div class="hp-category-name">
+                  Kids
+                </div>
+                <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Kids_CategoryPod_.jpg" alt=""/>
+              </a>
+            </div>
+          </div>
+          <div class="hp-category hp-cat-t624 hp-ordinal">
+            <div class="clearer" id="hpTopContainer">
+              <div class="hp-ordinal-hdr">
+                B&amp;N Top 100
+              </div>
+              <ol id="hp-top-100">
+                <li>
+                  <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_House-of-Spies/Daniel-Silva_text);"
+                  href="/w/House-of-Spies/Daniel-Silva/1125774816?ean=9780062680471" title="House of Spies (Signed Book) (Gabriel Allon Series #17)">
+                    <span class="hp-ordinal-position">1</span>
+                    <span class="hp-ordinal-title">House of Spies (Signed Book) (Gabriel Allon…</span>
+                    <span class="hp-ordinal-author">by Daniel Silva</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Astrophysics-for-People-in-a-Hurry/Neil-deGrasse-Tyson_text);" href="#" title="Astrophysics for People in a Hurry">
+                    <span class="hp-ordinal-position">2</span>
+                    <span class="hp-ordinal-title">Astrophysics for People in a Hurry</span>
+                    <span class="hp-ordinal-author">by Neil deGrasse Tyson</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_The-Silent-Corner/Dean-Koontz_text);" href="#" title="The Silent Corner (Signed Book)">
+                    <span class="hp-ordinal-position">3</span>
+                    <span class="hp-ordinal-title">The Silent Corner (Signed Book)</span>
+                    <span class="hp-ordinal-author">by Dean Koontz</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Lord-of-Shadows/Cassandra-Clare_text);" href="#" title="Lord of Shadows (Dark Artifices Series #2) (B&amp;N Exclusive Edition)">
+                    <span class="hp-ordinal-position">4</span>
+                    <span class="hp-ordinal-title">Lord of Shadows (Dark Artifices Series #2)…</span>
+                    <span class="hp-ordinal-author">by Cassandra Clare</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Into-the-Water/Paula-Hawkins_text);" href="#" title="Into the Water">
+                    <span class="hp-ordinal-position">5</span>
+                    <span class="hp-ordinal-title">Into the Water</span>
+                    <span class="hp-ordinal-author">by Paula Hawkins</span>
+                  </a>
+                </li>
+              </ol>
+              <div class="hp-ordinal-cta-shell">
+                <a onclick="set_cookie(hpcategories_b-n-top-100_see-all_text);" class="hp-ordinal-cta" href="#">&nbsp;See All&nbsp;</a>
+              </div>
+            </div>
+          </div>
+          <div class="hp-category">
+            <!-- last hp-cat-w624   -->
+            <a href="#" onclick="set_cookie('hpcategories_nook_na_imagetext');">
+              <div class="hp-category-name left">
+                NOOK
+              </div>
+              <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/NOOK_CategoryPod_.jpg" alt=""/>
+            </a>
+          </div>
+          <div class="hp-category">
+            <a href="#" onclick="set_cookie('hpcategories_teen_na_imagetext');">
+              <div class="hp-category-name">
+                Teens
+              </div>
+              <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Teens_CategoryPod_.jpg" alt=""/>
+            </a>
+          </div>
+          <div class="hp-category">
+            <a href="#" onclick="set_cookie('hpcategories_toys-games_na_imagetext');">
+              <div class="hp-category-name">
+                Toys &amp; Games
+              </div>
+              <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Toys_CategoryPod_.jpg" alt=""/>
+            </a>
+          </div>
+          <div class="hp-category">
+            <a href="#" onclick="set_cookie('hpcategories_home-gift_na_imagetext');">
+              <div class="hp-category-name">
+                Home &amp; Gifts
+              </div>
+              <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/HomeGift_CategoryPod_.jpg" alt=""/>
+            </a>
+          </div>
+          <div class="hp-category">
+            <a href="#" onclick="set_cookie('hpcategories_movies-tv_na_imagetext');">
+              <div class="hp-category-name">
+                Movies &amp; TV
+              </div>
+              <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Movies_TV_CategoryPod_.jpg" alt=""/>
+            </a>
+          </div>
+          <div class="hp-category-promo bnreads">
+            <a href="#" onclick="set_cookie('hpcategories_bnreads_na_imagetext');">
+              <div class="hp-category-promo-name">
+                B&amp;N Reads
+              </div>
+              <div class="hp-category-promo-copy">
+                Reviews, recommendations,
+                <br/>
+                and book culture commentary
+                <br/>
+                from Barnes &amp; Noble.
+              </div>
+              <span class="hp1600-cta">Read More</span>
+            </a>
+          </div>
         </div>
-        <ol id="hp-top-100">
-         <li><a onclick="set_cookie(hpcategories_B&amp;N-Top-100_House-of-Spies/Daniel-Silva_text);
-           " href="/w/House-of-Spies/Daniel-Silva/1125774816?ean=9780062680471"
-           title="House of Spies (Signed Book) (Gabriel Allon Series #17)">
-           <span class="hp-ordinal-position">1</span><span class="hp-ordinal-title">House of Spies (Signed Book) (Gabriel Allon…</span>
-           <span class="hp-ordinal-author">by Daniel Silva</span></a></li>
-
-         <li><a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Astrophysics-for-People-in-a-Hurry/Neil-deGrasse-Tyson_text);"
-           href="/w/Astrophysics-for-People-in-a-Hurry/Neil-deGrasse-Tyson/1125419184?ean=9780393609394"
-           title="Astrophysics for People in a Hurry"><span class="hp-ordinal-position">2</span>
-           <span class="hp-ordinal-title">Astrophysics for People in a Hurry</span>
-           <span class="hp-ordinal-author">by Neil deGrasse Tyson</span></a></li>
-
-         <li><a onclick="set_cookie(hpcategories_B&amp;N-Top-100_The-Silent-Corner/Dean-Koontz_text);"
-           href="/w/The-Silent-Corner/Dean-Koontz/1124596058?ean=9781101966198" title="The Silent Corner (Signed Book)">
-           <span class="hp-ordinal-position">3</span><span class="hp-ordinal-title">The Silent Corner (Signed Book)</span>
-           <span class="hp-ordinal-author">by Dean Koontz</span></a></li>
-
-         <li><a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Lord-of-Shadows/Cassandra-Clare_text);
-           "href="/w/Lord-of-Shadows/Cassandra-Clare/1123863196?ean=9781534406162"
-           title="Lord of Shadows (Dark Artifices Series #2) (B&amp;N Exclusive Edition)"><span class="hp-ordinal-position">4</span>
-           <span class="hp-ordinal-title">Lord of Shadows (Dark Artifices Series #2)…</span>
-           <span class="hp-ordinal-author">by Cassandra Clare</span></a></li>
-
-         <li><a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Into-the-Water/Paula-Hawkins_text);
-           " href="/w/Into-the-Water/Paula-Hawkins/1125248053?ean=9780735211209" title="Into the Water">
-           <span class="hp-ordinal-position">5</span><span class="hp-ordinal-title">Into the Water</span>
-           <span class="hp-ordinal-author">by Paula Hawkins</span></a></li>
-        </ol>
-        <div class="hp-ordinal-cta-shell">
-         <a onclick="set_cookie(hpcategories_b-n-top-100_see-all_text);" class="hp-ordinal-cta" href="/b/books/_/N-1fZ29Z8q8">&nbsp;See All&nbsp;</a>
-        </div>
-       </div>
+        <!-- // close hp-categories -->
       </div>
-      <div class="hp-category">
-       <!-- last hp-cat-w624   -->
-       <a href="/b/nook/_/N-1pbl" onclick="set_cookie('hpcategories_nook_na_imagetext');">
-        <div class="hp-category-name left">
-         NOOK
-        </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/NOOK_CategoryPod_.jpg" alt="" /> </a>
-      </div>
-      <div class="hp-category">
-       <a href="/b/books/teens/_/N-29Z8q8Z19r4" onclick="set_cookie('hpcategories_teen_na_imagetext');">
-        <div class="hp-category-name">
-         Teens
-        </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Teens_CategoryPod_.jpg" alt="" /> </a>
-      </div>
-      <div class="hp-category">
-       <a href="/b/toys-games/_/N-8qf" onclick="set_cookie('hpcategories_toys-games_na_imagetext');">
-        <div class="hp-category-name">
-         Toys &amp; Games
-        </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Toys_CategoryPod_.jpg" alt="" /> </a>
-      </div>
-      <div class="hp-category">
-       <a href="/b/home-gifts/_/N-8qg" onclick="set_cookie('hpcategories_home-gift_na_imagetext');">
-        <div class="hp-category-name">
-         Home &amp; Gifts
-        </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/HomeGift_CategoryPod_.jpg" alt="" /> </a>
-      </div>
-      <div class="hp-category">
-       <a href="/b/movies-tv/_/N-8qh" onclick="set_cookie('hpcategories_movies-tv_na_imagetext');">
-        <div class="hp-category-name">
-         Movies &amp; TV
-        </div> <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Movies_TV_CategoryPod_.jpg" alt="" /> </a>
-      </div>
-      <div class="hp-category-promo bnreads">
-       <a href="http://www.barnesandnoble.com/blog/" onclick="set_cookie('hpcategories_bnreads_na_imagetext');">
-        <div class="hp-category-promo-name">
-         B&amp;N Reads
-        </div>
-        <div class="hp-category-promo-copy">
-          Reviews, recommendations,
-         <br /> and book culture commentary
-         <br /> from Barnes &amp; Noble.
-        </div> <span class="hp1600-cta">Read More</span> </a>
-      </div>
-     </div>
-     <!-- // close hp-categories -->
-    </div>
-
-<!-- footer -->
-    <footer class="footer-style">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <h5>原版英文图书</h5>
-        <p class="footer-style-p">吸收英文世界精华的同时，英文水平迅速水涨船高</p>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 text-right">
-        <div class="col-xs-4">
-          <h5>爱阅读小密圈</h5>
-          <p>加入圈子</p>
-          <p>付款流程</p>
-          <p>免费包邮</p>
-        </div>
-        <div class="col-xs-4">
-          <h5>用户指南</h5>
-          <p>常见问题</p>
-          <p>退货退款</p>
-          <p>用户服务</p>
-        </div>
-        <div class="col-xs-4">
-          <h5>关于我们</h5>
-          <p>联系我们</p>
-        </div>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <div class="row">
-      <p class="text-center">Copyright ©2017 我的第一本原版书 - Design by
-          <a href="/about/index">chensong &amp; justineyeah</a>
-      </p>
     </div>
   </div>
-</footer>

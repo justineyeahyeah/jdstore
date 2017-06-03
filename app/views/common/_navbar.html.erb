@@ -33,7 +33,7 @@
             </a>
             <ul class="dropdown-menu" id="user-dropdown">
               <% if current_user.admin? %>
-                <li><a href="admin/products">Admin Panel <span class="glyphicon glyphicon-user pull-right"></span></a></li>
+                <li><a href="/admin/products">Admin Panel <span class="glyphicon glyphicon-user pull-right"></span></a></li>
               <% end %>
               <li class="divider"></li>
               <li><a href="/account/users/:id/edit">Account Settings<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
