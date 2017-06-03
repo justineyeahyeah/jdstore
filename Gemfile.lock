@@ -200,6 +200,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rollbar (2.14.1)
+      multi_json
     ruby-hmac (0.4.0)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -284,6 +286,7 @@ DEPENDENCIES
   qiniu-rs
   rails (~> 5.0.0)
   ransack
+  rollbar
   sass-rails (~> 5.0)
   seo_helper
   simple_form
