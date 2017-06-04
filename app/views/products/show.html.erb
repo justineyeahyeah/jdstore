@@ -1,77 +1,110 @@
 <div class="container">
 	<div class="row">
-  <!-- product photo -->
-   <div class="col-xs-4 item-photo">
-     <% if @product.image.present? %>
-       <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
-     <% else %>
-       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-     <% end %>
-                </div>
-								<div class="star-rating" data-score= <%= @avg_comment %> ></div>
-                <div class="col-xs-5" style="border:0px solid gray">
-                    <!-- product -->
-                    <h3><%= @product.title %></h3>
-                    <h5 style="color:#337ab7"> by <a href="#"><%= @product.author %></a> <small style="color:#337ab7">(<%= @product.comments.count %> Comments)</small></h5>
+		<!-- product photo -->
+		<div class="col-xs-4" style="padding: 50px 20px;">
+			<div class="item-photo">
+			<% if @product.image.present? %>
+			<%= image_tag(@product.image.medium.url, class: "thumbnail") %>
+		<% else %>
+			<%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+			<% end %>
+			</div>
+			<div class="wish-line text-center" style="margin-top: 20px;">
+				<% if current_user && current_user.favourite_product?(@product) %>
+				<div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 22px;">
+					<i class="fa fa-heart-o fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+				 <h5 style="height: 20px;line-height: 20px;float: left;">Added To <%= link_to("Wish List", "#")%></h5>
+				 </div>
+			 <% else %>
+			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 30px;">
+				<i class="fa fa-heart fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+				<%= link_to("Add To Wish List", favourite_product_path(@product), method: :post, style: "height: 20px;line-height: 20px;float: left;margin-top: 10px;font-weight: solid;") %>
+				</div>
+			 <% end %>
+		 </div>
+		</div>
+		<div class="col-xs-5" style="border:0px solid gray">
+			<!-- product -->
+			<h3><%= @product.title %></h3>
+			<h5 style="color:#337ab7">
+				by
+				<a href="#"><%= @product.author %></a>
+				<div class="star-rating" data-score=<%= @avg_comment %>></div>
+				<a data-toggle="tab" href="#comments"><small style="color:#337ab7">(<%= @product.comments.count %>
+					Comments)</small></a>
+			</h5>
 
-                    <!-- details -->
-                    <h6 class="title-price"><small>price</small></h6>
-                    <h3 style="margin-top:0px;">￥ <%= @product.price %></h3>
+			<!-- details -->
+			<h6 class="title-price">
+				<small>price</small>
+			</h6>
+			<h3 style="margin-top:0px;">￥
+				<%= @product.price %></h3>
 
-                    <!-- product attributs -->
-                    <div class="section" style="padding-bottom:5px;">
-                        <h6 class="title-attr"><small>Editions</small></h6>
-                        <div>
-                            <div class="attr2">Kindle</div>
-                            <div class="attr2">Paperback</div>
-                        </div>
-                    </div>
+			<!-- product attributs -->
+			<div class="section" style="padding-bottom:5px;">
+				<h6 class="title-attr">
+					<small>Editions</small>
+				</h6>
+				<div>
+					<div class="attr2">Kindle</div>
+					<div class="attr2">Paperback</div>
+				</div>
+			</div>
 
-                    <div class="section" style="padding-bottom:20px;">
-                      <%= simple_form_for @product, method: :post, url: add_to_cart_product_path(@product) do |f| %>
-                        <div class="buy-quantity">
-                        <%= link_to("-", "", id: "quantity-minus", class: "quantity-minus btn btn-default disabled") %>
-                        <%= f.input_field "", name: "quantity", value: '1', id: "quantity-input", class: "quantity-input" %>
-                        <%= link_to("+", "", id: "quantity-plus", class: "quantity-plus btn btn-default #{@product.quantity <= 1 ? 'disabled' : ''}") %>
-                        </div>
-                        <button type="submit" class="btn btn-success <%= @product.quantity == 0 ? 'disabled' : '' %>" id="cart-btn">
-                        <%= fa_icon("cart-arrow-down", text: "Add to cart") %>
-                        </button>
-                        <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Add to wish list </a></h6>
-                        <% end %>
-                    </div>
-                </div>
+			<div class="section" style="padding-bottom:20px;">
+				<%= simple_form_for @product, method: :post, url: add_to_cart_product_path(@product) do |f| %>
+				<div class="buy-quantity">
+					<%= link_to("-", "", id: "quantity-minus", class: "quantity-minus btn btn-default disabled") %>
+					<%= f.input_field "", name: "quantity", value: '1', id: "quantity-input", class: "quantity-input" %>
+					<%= link_to("+", "", id: "quantity-plus", class: "quantity-plus btn btn-default #{@product.quantity <= 1 ? 'disabled' : ''}") %>
+				</div>
+				<button type="submit" class="btn btn-success <%= @product.quantity == 0 ? 'disabled' : '' %>" id="cart-btn">
+					<%= fa_icon("cart-arrow-down", text: "Add to cart") %>
+				</button>
 
-                <div class="row">
-                <div class="col-md-6">
-                <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#book-details">Book details</a></li>
-                <li><a data-toggle="tab" href="#comments"><%= @product.comments.count %> Comments</a></li>
-              </ul>
+				<% end %>
+			</div>
+		</div>
 
-              <div class="tab-content" style="padding-left: 50px;">
-                <div id="book-details" class="tab-pane fade in active">
-                  <h4>Book details</h4>
-                  <p>
-                    <strong>Category：</strong><%= @product.category.name %>
-                  </p>
-                  <p>
-                    <strong>Publisher：</strong> <%= @product.publisher %>
-                  </p>
-                  <p>
-                    <strong>Publication Date：</strong> <%= @product.publication_date %>
-                  </p>
-                  <p>
-                    <strong>Length：</strong> <%= @product.pages %>
-                  </p>
-                </div>
-                <div id="comments" class="tab-pane fade">
-                  <div class="comments" >
-                  <%= render @product.comments %>
-                  <hr>
-                  <%= render 'comments/form' %>
-                  </div>
-                </div>
-	</div>
-</div>
-</div>
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#book-details">Book details</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#comments"><%= @product.comments.count %>
+							Comments</a>
+					</li>
+				</ul>
+
+				<div class="tab-content" style="padding-left: 50px;">
+					<div id="book-details" class="tab-pane fade in active">
+						<h4>Book details</h4>
+						<p>
+							<strong>Category：</strong><%= @product.category.name %>
+						</p>
+						<p>
+							<strong>Publisher：</strong>
+							<%= @product.publisher %>
+						</p>
+						<p>
+							<strong>Publication Date：</strong>
+							<%= @product.publication_date %>
+						</p>
+						<p>
+							<strong>Length：</strong>
+							<%= @product.pages %>
+						</p>
+					</div>
+					<div id="comments" class="tab-pane fade">
+						<div class="comments">
+							<%= render @product.comments %>
+							<hr>
+							<%= render 'comments/form' %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

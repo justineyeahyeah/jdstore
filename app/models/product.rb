@@ -23,6 +23,8 @@ class Product < ApplicationRecord
   acts_as_list
   belongs_to :category
   has_many :comments
+  has_many :product_favs
+  has_many :users, through: :product_favs, source: :user
 
   def shelve!
     self.is_shelved = true

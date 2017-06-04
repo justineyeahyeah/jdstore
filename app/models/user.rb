@@ -33,5 +33,20 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :comments
+  has_many :product_favs
+  has_many :products, through: :product_favs, source: :product
+
+
+  def favourite_product?(product)
+      products.include?(product)
+    end
+  
+    def add_favourite!(product)
+      products << product
+    end
+
+    def cancel_favourite!(product)
+      products.delete(product)
+    end
 
 end
