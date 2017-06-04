@@ -56,32 +56,33 @@
 
 //导航栏链接
 .navbar-default .navbar-nav > li > a{
-font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 padding: 10px 15px; //上下10px，左右15px
 line-height: 40px; //文字行高
 font-size: 16px;
+font-weight: 400;
  }
 
   .navbar-default .navbar-nav > li > a:hover,
   .navbar-default .navbar-nav > li > a:focus {
-
-    background-color: #35938B;
+    color: #35938B;
+    background-color: transparent;
   }
   .navbar-default .navbar-nav > .active > a,
   .navbar-default .navbar-nav > .active > a:hover,
   .navbar-default .navbar-nav > .active > a:focus {
-    color: #FFFFFF;//鼠标放置在链接上的文字颜色
+    color: #35938B;//鼠标放置在链接上的文字颜色
 
-    background-color: #35938B;
+    background-color: transparent;
 
   }
 
   .navbar-default .navbar-nav > .open > a,
   .navbar-default .navbar-nav > .open > a:focus,
   .navbar-default .navbar-nav > .open > a:hover {
-    background-color: #35938B;
+    background-color: transparent;
 
-    color: #FFFFFF;
+    color: #35938B;
 
   }
 
@@ -381,7 +382,6 @@ hr{
 
 // user dropdown
 .dropdown-menu>li>a {
-    color:#428bca;
     width: 100%;
     margin-right: 5px;
 }
@@ -391,26 +391,7 @@ hr{
     margin-top:5px;
     width:250px;
 }
-.dropdown ul.dropdown-menu:before {
-    content: "";
-    border-bottom: 10px solid #fff;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    position: absolute;
-    top: -10px;
-    right: 16px;
-    z-index: 10;
-}
-.dropdown ul.dropdown-menu:after {
-    content: "";
-    border-bottom: 12px solid #ccc;
-    border-right: 12px solid transparent;
-    border-left: 12px solid transparent;
-    position: absolute;
-    top: -12px;
-    right: 14px;
-    z-index: 9;
-}
+
 
 
 //products-list

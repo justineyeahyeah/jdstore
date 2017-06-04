@@ -13,7 +13,7 @@
 				<% if current_user && current_user.favourite_product?(@product) %>
 				<div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 22px;">
 					<i class="fa fa-heart-o fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
-				 <h5 style="height: 20px;line-height: 20px;float: left;">Added To <%= link_to("Wish List", "#")%></h5>
+				 <h5 style="height: 20px;line-height: 20px;float: left;">Added To <%= link_to("Wish List", unfavourite_product_path(@product), method: :post)%></h5>
 				 </div>
 			 <% else %>
 			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 30px;">
