@@ -1,5 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+
+  def new
+    @product = Product.find(params[:product_id])
+    @comment = comment.new
+  end
+
   def create
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
@@ -22,7 +28,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :rating)
   end
 
 end

@@ -8,10 +8,11 @@
        <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
      <% end %>
                 </div>
+								<div class="star-rating" data-score= <%= @avg_comment %> ></div>
                 <div class="col-xs-5" style="border:0px solid gray">
                     <!-- product -->
                     <h3><%= @product.title %></h3>
-                    <h5 style="color:#337ab7"> by <a href="#"><%= @product.author %></a> <small style="color:#337ab7">(5054 ventes)</small></h5>
+                    <h5 style="color:#337ab7"> by <a href="#"><%= @product.author %></a> <small style="color:#337ab7">(<%= @product.comments.count %> Comments)</small></h5>
 
                     <!-- details -->
                     <h6 class="title-price"><small>price</small></h6>

@@ -41,3 +41,22 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
   });
 });
+
+
+//评分
+$('.star-rating').raty({
+    starHalf: 'http://ww4.sinaimg.cn/large/006tKfTcgy1fg91pt6sn6j300o00o0qm.jpg',
+    starOff: 'http://ww3.sinaimg.cn/large/006tKfTcgy1fg91q0zmitj300o00o0pu.jpg',
+    starOn: 'http://ww4.sinaimg.cn/large/006tKfTcgy1fg91qf0jfjj300o00o0sh.jpg',
+        readOnly: true,
+        score: function() {
+      return $(this).attr('data-score');
+    }
+    });
+$('#star-rating').raty({
+    starHalf: 'http://ww4.sinaimg.cn/large/006tKfTcgy1fg91pt6sn6j300o00o0qm.jpg',
+    starOff: 'http://ww3.sinaimg.cn/large/006tKfTcgy1fg91q0zmitj300o00o0pu.jpg',
+    starOn: 'http://ww4.sinaimg.cn/large/006tKfTcgy1fg91qf0jfjj300o00o0sh.jpg',
+    scoreName: 'comment[rating]'
+    });
+$('#star-rating > img').eq(0).trigger('click') //强制必须选一颗星

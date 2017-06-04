@@ -1,5 +1,7 @@
 <div class="comments_wrapper clearfix">
   <div class="pull-left">
+    <% @comments.each do |comment| %>
+  Rating: <div class="star-rating" data-score= <%= comment.rating %> ></div>
     <p class="lead"><%= comment.body %></p>
     <p>
       <small>Submitted
@@ -7,6 +9,7 @@
           by <%= comment.user.email %>
       </small>
     </p>
+    <% end %>
   </div>
 
   <div>
